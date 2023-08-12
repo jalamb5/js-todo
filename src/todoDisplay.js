@@ -15,11 +15,17 @@ function renderTodo(todoItem) {
   const body = document.querySelector("body");
   const todoContainer = establishTodoContainer();
 
-  const todoTitle = document.createElement("p");
+  const title = document.createElement("p");
+  const dueDate = document.createElement("p");
+  const priority = document.createElement("p");
 
-  todoTitle.innerHTML = todoItem.title;
+  title.innerHTML = todoItem.title;
+  dueDate.innerHTML = todoItem.dueDate;
+  priority.innerHTML = todoItem.priority;
 
-  todoContainer.appendChild(todoTitle);
+  todoContainer.appendChild(title);
+  todoContainer.appendChild(dueDate);
+  todoContainer.appendChild(priority);
   body.appendChild(todoContainer);
 
 };
