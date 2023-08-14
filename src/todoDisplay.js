@@ -27,6 +27,9 @@ function renderTodo(todoItem) {
   const priority = document.createElement("p");
   const list = document.createElement("p");
 
+  let checkBox = document.createElement("input");
+  checkBox.type = "checkbox";
+
   title.innerHTML = todoItem.title;
   dueDate.innerHTML = todoItem.dueDate;
   priority.innerHTML = todoItem.priority;
