@@ -2,4 +2,4 @@ import renderTodo from "./todoDisplay.js";
 import renderTodoForm from "./todoForm.js";
 import css from "../dist/assets/style.css";
 
-todoDb.push(renderTodoForm());
+renderTodoForm();
