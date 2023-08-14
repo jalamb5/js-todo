@@ -2,7 +2,7 @@ export default renderTodoForm;
 import renderTodo from "./todoDisplay.js";
 
 class todo {
-  constructor(title, dueDate, priority, notes, list = 'default') {
+  constructor(title, dueDate, priority, notes, list = "default") {
     this.title = title;
     this.dueDate = dueDate;
     this.priority = priority;
@@ -13,13 +13,13 @@ class todo {
 }
 
 function renderTodoForm() {
-  const body = document.querySelector('body');
+  const body = document.querySelector("body");
 
-  const formContainer = document.createElement('div');
-  formContainer.id = 'todo-form';
+  const formContainer = document.createElement("div");
+  formContainer.id = "todo-form";
 
-  const form = document.createElement('form');
-  form.addEventListener('submit', function (event) {
+  const form = document.createElement("form");
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const title = form.elements.title.value;
@@ -29,11 +29,13 @@ function renderTodoForm() {
     const list = form.elements.list.value;
 
     const newTodo = new todo(title, dueDate, priority, notes, list);
-    console.log(newTodo);
     renderTodo(newTodo);
 
     // Reset the form after submission
     form.reset();
+
+    // Return todo to create db array.
+    return newTodo;
   });
 
   form.innerHTML = `
