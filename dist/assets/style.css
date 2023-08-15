@@ -15,7 +15,7 @@ form {
   grid-column: 1 / span 2;
 }
 
-#todo-form, #todo-container {
+#todo-form, #todos-container {
   grid-column: 2;
 }
 
@@ -25,10 +25,18 @@ form {
   min-width: 0;
 }
 
-#todo-container {
+#todos-container {
   grid-row: 3;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   margin-left: 2rem;
   margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+
 }

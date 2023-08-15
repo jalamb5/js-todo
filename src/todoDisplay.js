@@ -2,25 +2,27 @@ export default renderTodo;
 
 // Check if content div exists, if not create it.
 function establishContainers() {
-  let todoContainer = document.getElementById('todo-container');
-  let listContainer = document.getElementById('list-container');
+  let todosContainer = document.getElementById("todos-container");
+  let listContainer = document.getElementById("list-container");
+  let newTodo = document.createElement("div");
+  newTodo.classList.add("todo-item");
 
-  if (!todoContainer) {
-    todoContainer = document.createElement('div');
-    todoContainer.id = 'todo-container';
-  };
+  if (!todosContainer) {
+    todosContainer = document.createElement("div");
+    todosContainer.id = "todos-container";
+  }
 
   if (!listContainer) {
-    listContainer = document.createElement('div');
-    listContainer.id = 'list-container';
-  };
+    listContainer = document.createElement("div");
+    listContainer.id = "list-container";
+  }
 
-  return [todoContainer, listContainer];
-};
+  return [todosContainer, listContainer, newTodo];
+}
 
 function renderTodo(todoItem) {
   const body = document.querySelector("body");
-  const [todoContainer, listContainer] = establishContainers();
+  const [todosContainer, listContainer, newTodo] = establishContainers();
 
   const title = document.createElement("p");
   const dueDate = document.createElement("p");
@@ -35,11 +37,12 @@ function renderTodo(todoItem) {
   priority.innerHTML = todoItem.priority;
   list.innerHTML = todoItem.list;
 
-  todoContainer.appendChild(title);
-  todoContainer.appendChild(dueDate);
-  todoContainer.appendChild(priority);
+  newTodo.appendChild(checkBox);
+  newTodo.appendChild(title);
+  newTodo.appendChild(dueDate);
+  newTodo.appendChild(priority);
   listContainer.appendChild(list);
-  body.appendChild(todoContainer);
+  todosContainer.appendChild(newTodo);
+  body.appendChild(todosContainer);
   body.appendChild(listContainer);
-
-};
+}
