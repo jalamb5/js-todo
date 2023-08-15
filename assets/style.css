@@ -6,8 +6,16 @@ body {
 }
 
 form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 3px;
+  /* flex-wrap: wrap; */
+}
+label {
+  grid-column: 1;
+}
+#submit {
+  grid-column: 1 / span 2;
 }
 
 #site-title {
@@ -15,20 +23,15 @@ form {
   grid-column: 1 / span 2;
 }
 
-#todo-form, #todos-container {
-  grid-column: 2;
-}
-
 #todo-form {
+  grid-column: 1;
   grid-row: 2;
-  padding: 2rem;
-  min-width: 0;
+  max-width: fit-content;
 }
 
 #todos-container {
-  grid-row: 3;
-  /* display: flex;
-  justify-content: space-between; */
+  grid-column: 2;
+  grid-row: 2;
   margin-left: 2rem;
   margin-right: 2rem;
   display: flex;
@@ -38,5 +41,9 @@ form {
 .todo-item {
   display: flex;
   justify-content: space-between;
+}
 
+#list-container {
+  grid-column: 1;
+  grid-row: 3;
 }
