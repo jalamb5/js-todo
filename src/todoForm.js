@@ -58,7 +58,7 @@ function renderTodoForm() {
       <label for="list">List:</label>
       <input type="text" id="list" name="list"><br>
 
-      <input type="submit" value="Create Todo">
+      <input type="submit" value="Create Todo" id="submit">
   `;
 
   formContainer.appendChild(form);
