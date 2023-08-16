@@ -15,8 +15,8 @@ class todo {
 function renderTodoForm() {
   const body = document.querySelector("body");
 
-  const formContainer = document.createElement("div");
-  formContainer.id = "todo-form";
+  const sidebarContainer = document.createElement("div");
+  sidebarContainer.id = "sidebar";
 
   const form = document.createElement("form");
   form.addEventListener("submit", function (event) {
@@ -63,8 +63,8 @@ function renderTodoForm() {
       <input type="submit" value="Create Todo" id="submit">
   `;
 
-  formContainer.appendChild(form);
-  body.appendChild(formContainer);
+  sidebarContainer.appendChild(form);
+  body.appendChild(sidebarContainer);
 }
 
 function sendToStorage(todoItem) {

@@ -13,6 +13,9 @@ function establishContainers() {
   if (!listContainer) {
     listContainer = document.createElement("div");
     listContainer.id = "list-container";
+    let listTitle = document.createElement("h2");
+    listTitle.textContent = "Lists";
+    listContainer.appendChild(listTitle);
   }
 
   return [todosContainer, listContainer];
@@ -20,6 +23,7 @@ function establishContainers() {
 
 function renderTodo(i = 0) {
   const body = document.querySelector("body");
+  const sidebarContainer = document.getElementById("sidebar");
   const [todosContainer, listContainer] = establishContainers();
 
   for (i; i < window.localStorage.length; i++) {
@@ -51,5 +55,5 @@ function renderTodo(i = 0) {
 
   }
   body.appendChild(todosContainer);
-  body.appendChild(listContainer);
+  sidebarContainer.appendChild(listContainer);
 }
