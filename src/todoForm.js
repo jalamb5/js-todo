@@ -29,13 +29,15 @@ function renderTodoForm() {
     const list = form.elements.list.value;
 
     const newTodo = new todo(title, dueDate, priority, notes, list);
-    renderTodo();
 
     // Reset the form after submission
     form.reset();
 
     // Send todo object to localstorage.
     sendToStorage(JSON.stringify(newTodo));
+
+    // Render only the newly created todo.
+    renderTodo(window.localStorage.length - 1);
   });
 
   form.innerHTML = `

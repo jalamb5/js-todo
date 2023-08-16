@@ -18,11 +18,11 @@ function establishContainers() {
   return [todosContainer, listContainer];
 }
 
-function renderTodo() {
+function renderTodo(i = 0) {
   const body = document.querySelector("body");
   const [todosContainer, listContainer] = establishContainers();
 
-  for (let i = 0; i < window.localStorage.length; i++) {
+  for (i; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
     let newTodo = document.createElement("div");
