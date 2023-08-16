@@ -35,7 +35,7 @@ function renderTodoForm() {
     form.reset();
 
     // Return todo to create db array.
-    return newTodo;
+    sendToStorage(newTodo);
   });
 
   form.innerHTML = `
@@ -64,3 +64,8 @@ function renderTodoForm() {
   formContainer.appendChild(form);
   body.appendChild(formContainer);
 }
+
+function sendToStorage(todoItem) {
+  window.localStorage.setItem(window.localStorage.length, todoItem);
+  console.log(window.localStorage.length);
+};
