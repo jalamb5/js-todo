@@ -4,8 +4,6 @@ export default renderTodo;
 function establishContainers() {
   let todosContainer = document.getElementById("todos-container");
   let listContainer = document.getElementById("list-container");
-  let newTodo = document.createElement("div");
-  newTodo.classList.add("todo-item");
 
   if (!todosContainer) {
     todosContainer = document.createElement("div");
@@ -17,32 +15,41 @@ function establishContainers() {
     listContainer.id = "list-container";
   }
 
-  return [todosContainer, listContainer, newTodo];
+  return [todosContainer, listContainer];
 }
 
-function renderTodo(todoItem) {
+function renderTodo() {
   const body = document.querySelector("body");
-  const [todosContainer, listContainer, newTodo] = establishContainers();
+  const [todosContainer, listContainer] = establishContainers();
 
-  const title = document.createElement("p");
-  const dueDate = document.createElement("p");
-  const priority = document.createElement("p");
-  const list = document.createElement("p");
+  for (let i = 0; i < window.localStorage.length; i++) {
+    let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
-  let checkBox = document.createElement("input");
-  checkBox.type = "checkbox";
+    let newTodo = document.createElement("div");
+    newTodo.classList.add("todo-item");
 
-  title.innerHTML = todoItem.title;
-  dueDate.innerHTML = todoItem.dueDate;
-  priority.innerHTML = todoItem.priority;
-  list.innerHTML = todoItem.list;
+    const title = document.createElement("p");
+    const dueDate = document.createElement("p");
+    const priority = document.createElement("p");
+    const list = document.createElement("p");
 
-  newTodo.appendChild(checkBox);
-  newTodo.appendChild(title);
-  newTodo.appendChild(dueDate);
-  newTodo.appendChild(priority);
-  listContainer.appendChild(list);
-  todosContainer.appendChild(newTodo);
+    let checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+
+    title.innerHTML = todoItem.title;
+    dueDate.innerHTML = todoItem.dueDate;
+    priority.innerHTML = todoItem.priority;
+    list.innerHTML = todoItem.list;
+
+    newTodo.appendChild(checkBox);
+    newTodo.appendChild(title);
+    newTodo.appendChild(dueDate);
+    newTodo.appendChild(priority);
+    listContainer.appendChild(list);
+    todosContainer.appendChild(newTodo);
+    console.log(todosContainer);
+
+  }
   body.appendChild(todosContainer);
   body.appendChild(listContainer);
 }

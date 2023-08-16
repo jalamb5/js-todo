@@ -3,3 +3,6 @@ import renderTodoForm from "./todoForm.js";
 import css from "../dist/assets/style.css";
 
 renderTodoForm();
+renderTodo();
+
+

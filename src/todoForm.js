@@ -29,13 +29,13 @@ function renderTodoForm() {
     const list = form.elements.list.value;
 
     const newTodo = new todo(title, dueDate, priority, notes, list);
-    renderTodo(newTodo);
+    renderTodo();
 
     // Reset the form after submission
     form.reset();
 
-    // Return todo to create db array.
-    sendToStorage(newTodo);
+    // Send todo object to localstorage.
+    sendToStorage(JSON.stringify(newTodo));
   });
 
   form.innerHTML = `
