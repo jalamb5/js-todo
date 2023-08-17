@@ -40,6 +40,7 @@ function renderTodo(i = 0) {
 
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    if (todoItem.completed) { checkBox.checked = true; };
 
     // Attach the todo item's key as a hidden attribute for lookups.
     key.setAttribute("hidden", "hidden");
