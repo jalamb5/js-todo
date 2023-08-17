@@ -56,16 +56,17 @@ function renderTodo(i = 0) {
 }
 
 function renderLists(listContainer, sidebarContainer) {
-  let listTitle = document.createElement("h2");
-  listTitle.textContent = "Lists";
-  listContainer.appendChild(listTitle);
-
   // Remove children from the list container if they exist.
-  if (listContainer.children.length > 1) {
+  if (listContainer.children.length > 0) {
     while (listContainer.firstChild) {
       listContainer.removeChild(listContainer.firstChild);
     }
   }
+
+  // Set title.
+  let listTitle = document.createElement("h2");
+  listTitle.textContent = "Lists";
+  listContainer.appendChild(listTitle);
 
   // Collect lists from all todo items in local storage.
   let lists = [];
