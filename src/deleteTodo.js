@@ -13,4 +13,6 @@ function deleteTodo(key) {
     }
   }
   renderTodo();
+
+  // location.reload();
 }

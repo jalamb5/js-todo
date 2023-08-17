@@ -1,3 +1,5 @@
+import deleteTodo from "./deleteTodo";
+
 export default renderTodo;
 
 // Check if content divs exists, if not create them.
