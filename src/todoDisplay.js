@@ -1,6 +1,6 @@
 export default renderTodo;
 
-// Check if content div exists, if not create it.
+// Check if content divs exists, if not create them.
 function establishContainers() {
   let todosContainer = document.getElementById("todos-container");
   let listContainer = document.getElementById("list-container");
@@ -13,9 +13,6 @@ function establishContainers() {
   if (!listContainer) {
     listContainer = document.createElement("div");
     listContainer.id = "list-container";
-    let listTitle = document.createElement("h2");
-    listTitle.textContent = "Lists";
-    listContainer.appendChild(listTitle);
   }
 
   return [todosContainer, listContainer];
@@ -32,34 +29,59 @@ function renderTodo(i = 0) {
     let newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
 
-    const title = document.createElement("p");
-    const dueDate = document.createElement("p");
-    const priority = document.createElement("p");
-    const list = document.createElement("p");
+    // Attach the todo item's key as a hidden attribute for lookups.
     const key = document.createElement("p");
+    key.setAttribute("hidden", "hidden");
+    key.textContent = i.toString();
 
+    // Create checkbox and ensure it is marked if the todo is completed.
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     if (todoItem.completed) { checkBox.checked = true; };
 
-    // Attach the todo item's key as a hidden attribute for lookups.
-    key.setAttribute("hidden", "hidden");
-    key.textContent = i.toString();
+    // Add todo info to page.
+    const title = document.createElement("p");
+    const dueDate = document.createElement("p");
+    const priority = document.createElement("p");
 
     title.textContent = todoItem.title;
     dueDate.textContent = todoItem.dueDate;
     priority.textContent = todoItem.priority;
 
-    list.textContent = todoItem.list;
-
     newTodo.append(key, checkBox, title, dueDate, priority);
-    listContainer.appendChild(list);
     todosContainer.appendChild(newTodo);
   }
   body.appendChild(todosContainer);
-  sidebarContainer.appendChild(listContainer);
+  renderLists(listContainer, sidebarContainer);
 }
 
-function cleanListContainer(listContainer) {
+function renderLists(listContainer, sidebarContainer) {
+  let listTitle = document.createElement("h2");
+  listTitle.textContent = "Lists";
+  listContainer.appendChild(listTitle);
 
+  // Remove children from the list container if they exist.
+  if (listContainer.children.length > 1) {
+    while (listContainer.firstChild) {
+      listContainer.removeChild(listContainer.firstChild);
+    }
+  }
+
+  // Collect lists from all todo items in local storage.
+  let lists = [];
+  for (let i = 0; i < window.localStorage.length; i++) {
+    let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    lists.push(todoItem.list);
+  }
+
+  // Remove duplicates.
+  let cleanedLists = [...new Set(lists)];
+
+  // Add cleaned up lists to page.
+  cleanedLists.forEach((list) => {
+    const listElement = document.createElement("p");
+    listElement.textContent = list;
+    listContainer.appendChild(listElement);
+  });
+  sidebarContainer.appendChild(listContainer);
 }

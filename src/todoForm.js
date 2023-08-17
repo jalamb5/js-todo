@@ -58,7 +58,7 @@ function renderTodoForm() {
       <textarea id="notes" name="notes"></textarea><br>
 
       <label for="list">List:</label>
-      <input type="text" id="list" name="list"><br>
+      <input type="text" id="list" name="list" value="Default"><br>
 
       <input type="submit" value="Create Todo" id="submit">
   `;
