@@ -46,11 +46,11 @@ function renderTodo(i = 0) {
     key.setAttribute("hidden", "hidden");
     key.textContent = i.toString();
 
-    title.innerHTML = todoItem.title;
-    dueDate.innerHTML = todoItem.dueDate;
-    priority.innerHTML = todoItem.priority;
+    title.textContent = todoItem.title;
+    dueDate.textContent = todoItem.dueDate;
+    priority.textContent = todoItem.priority;
 
-    list.innerHTML = todoItem.list;
+    list.textContent = todoItem.list;
 
     newTodo.append(key, checkBox, title, dueDate, priority);
     listContainer.appendChild(list);
