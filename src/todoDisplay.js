@@ -58,8 +58,6 @@ function renderTodo(i = 0) {
     newTodo.appendChild(priority);
     listContainer.appendChild(list);
     todosContainer.appendChild(newTodo);
-    console.log(todosContainer);
-
   }
   body.appendChild(todosContainer);
   sidebarContainer.appendChild(listContainer);
