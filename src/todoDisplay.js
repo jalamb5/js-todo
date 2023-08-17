@@ -59,3 +59,7 @@ function renderTodo(i = 0) {
   body.appendChild(todosContainer);
   sidebarContainer.appendChild(listContainer);
 }
+
+function cleanListContainer(listContainer) {
+
+}
