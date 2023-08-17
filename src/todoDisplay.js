@@ -41,6 +41,7 @@ function renderTodo(i = 0) {
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
 
+    // Attach the todo item's key as a hidden attribute for lookups.
     key.setAttribute("hidden", "hidden");
     key.textContent = i.toString();
 
