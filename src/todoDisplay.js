@@ -36,15 +36,21 @@ function renderTodo(i = 0) {
     const dueDate = document.createElement("p");
     const priority = document.createElement("p");
     const list = document.createElement("p");
+    const key = document.createElement("p");
 
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
 
+    key.setAttribute("hidden", "hidden");
+    key.textContent = i.toString();
+
     title.innerHTML = todoItem.title;
     dueDate.innerHTML = todoItem.dueDate;
     priority.innerHTML = todoItem.priority;
+
     list.innerHTML = todoItem.list;
 
+    newTodo.appendChild(key);
     newTodo.appendChild(checkBox);
     newTodo.appendChild(title);
     newTodo.appendChild(dueDate);
