@@ -52,11 +52,7 @@ function renderTodo(i = 0) {
 
     list.innerHTML = todoItem.list;
 
-    newTodo.appendChild(key);
-    newTodo.appendChild(checkBox);
-    newTodo.appendChild(title);
-    newTodo.appendChild(dueDate);
-    newTodo.appendChild(priority);
+    newTodo.append(key, checkBox, title, dueDate, priority);
     listContainer.appendChild(list);
     todosContainer.appendChild(newTodo);
   }

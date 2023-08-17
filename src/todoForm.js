@@ -69,5 +69,4 @@ function renderTodoForm() {
 
 function sendToStorage(todoItem) {
   window.localStorage.setItem(window.localStorage.length, todoItem);
-  console.log(window.localStorage.length);
 };
