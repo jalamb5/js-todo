@@ -26,6 +26,8 @@ function renderTodo(i = 0) {
   for (i; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
+    if (todoItem.deleted === "deleted") { continue };
+
     let newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
 
@@ -48,7 +50,11 @@ function renderTodo(i = 0) {
     dueDate.textContent = todoItem.dueDate;
     priority.textContent = todoItem.priority;
 
-    newTodo.append(key, checkBox, title, dueDate, priority);
+    // Create delete button.
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+
+    newTodo.append(key, checkBox, title, dueDate, priority, deleteButton);
     todosContainer.appendChild(newTodo);
   }
   body.appendChild(todosContainer);
