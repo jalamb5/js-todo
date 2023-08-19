@@ -14,5 +14,5 @@ function deleteTodo(key) {
   }
   renderTodo();
 
-  // location.reload();
+  location.reload();
 }

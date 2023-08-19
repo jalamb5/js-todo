@@ -55,6 +55,7 @@ function renderTodo(i = 0) {
     // Create delete button.
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-btn");
+    deleteButton.textContent = "🗑";
 
     newTodo.append(key, checkBox, title, dueDate, priority, deleteButton);
     todosContainer.appendChild(newTodo);
