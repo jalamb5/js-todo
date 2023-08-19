@@ -38,9 +38,6 @@ function renderTodoForm() {
 
     // Render only the newly created todo.
     renderTodo(window.localStorage.length - 1);
-
-    // Refresh page to handle delete.
-    location.reload();
   });
 
   form.innerHTML = `

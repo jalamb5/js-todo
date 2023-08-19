@@ -1,4 +1,4 @@
-import deleteTodo from "./deleteTodo";
+import { deleteListeners } from "./deleteTodo";
 
 export default renderTodo;
 
@@ -62,6 +62,9 @@ function renderTodo(i = 0) {
   }
   body.appendChild(todosContainer);
   renderLists(listContainer, sidebarContainer);
+
+  // Ensure onclick listeners are added to delete buttons.
+  deleteListeners();
 }
 
 function renderLists(listContainer, sidebarContainer) {

@@ -2,13 +2,13 @@ import renderTodo from "./todoDisplay.js";
 import renderTodoForm from "./todoForm.js";
 import css from "../dist/assets/style.css";
 import markBox from "./markBox.js";
-import deleteTodo from "./deleteTodo.js";
+import { deleteListeners } from "./deleteTodo.js";
 
 renderTodoForm();
 renderTodo();
+deleteListeners();
 
 let checkBoxes = document.querySelectorAll("input[type='checkbox']");
-let deleteButtons = document.querySelectorAll(".delete-btn");
 
 checkBoxes.forEach((checkbox) => {
   checkbox.onclick = () => {
@@ -16,8 +16,3 @@ checkBoxes.forEach((checkbox) => {
   }
 })
 
-deleteButtons.forEach((deleteButton) => {
-  deleteButton.onclick = () => {
-    deleteTodo(deleteButton.parentElement.firstChild.textContent);
-  }
-})

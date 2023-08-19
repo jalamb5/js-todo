@@ -1,4 +1,4 @@
-export default deleteTodo;
+export { deleteTodo, deleteListeners };
 import renderTodo from "./todoDisplay";
 
 function deleteTodo(key) {
@@ -13,6 +13,14 @@ function deleteTodo(key) {
     }
   }
   renderTodo();
+}
 
-  location.reload();
+function deleteListeners() {
+  let deleteButtons = document.querySelectorAll(".delete-btn");
+
+  deleteButtons.forEach((deleteButton) => {
+    deleteButton.onclick = () => {
+      deleteTodo(deleteButton.parentElement.firstChild.textContent);
+    }
+  })
 }
