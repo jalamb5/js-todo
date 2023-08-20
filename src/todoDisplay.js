@@ -28,7 +28,9 @@ function renderTodo(i = 0) {
   for (i; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
-    if (todoItem.deleted === "deleted") { continue };
+    if (todoItem.deleted === "deleted") {
+      continue;
+    }
 
     let newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
@@ -41,7 +43,9 @@ function renderTodo(i = 0) {
     // Create checkbox and ensure it is marked if the todo is completed.
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
-    if (todoItem.completed) { checkBox.checked = true; };
+    if (todoItem.completed) {
+      checkBox.checked = true;
+    }
 
     // Add todo info to page.
     const title = document.createElement("p");
@@ -93,6 +97,7 @@ function renderLists(listContainer, sidebarContainer) {
   // Add cleaned up lists to page.
   cleanedLists.forEach((list) => {
     const listElement = document.createElement("p");
+    listElement.classList.add("list");
     listElement.textContent = list;
     listContainer.appendChild(listElement);
   });
