@@ -47,4 +47,10 @@ label {
 
 #list-container {
   padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  padding-bottom: .25rem;
 }
