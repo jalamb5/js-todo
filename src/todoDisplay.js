@@ -34,13 +34,8 @@ function renderTodo(i = 0) {
 
     let newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
-    // Add key as id for div lookup.
+    // Attach the todo item's key for lookups.
     newTodo.id = i;
-
-    // Attach the todo item's key as a hidden attribute for lookups.
-    const key = document.createElement("p");
-    key.setAttribute("hidden", "hidden");
-    key.textContent = i.toString();
 
     // Create checkbox and ensure it is marked if the todo is completed.
     let checkBox = document.createElement("input");
@@ -63,7 +58,7 @@ function renderTodo(i = 0) {
     deleteButton.classList.add("delete-btn");
     deleteButton.textContent = "🗑";
 
-    newTodo.append(key, checkBox, title, dueDate, priority, deleteButton);
+    newTodo.append(checkBox, title, dueDate, priority, deleteButton);
     todosContainer.appendChild(newTodo);
   }
   body.appendChild(todosContainer);
