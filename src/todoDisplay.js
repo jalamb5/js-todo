@@ -34,6 +34,8 @@ function renderTodo(i = 0) {
 
     let newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
+    // Add key as id for div lookup.
+    newTodo.id = i;
 
     // Attach the todo item's key as a hidden attribute for lookups.
     const key = document.createElement("p");
