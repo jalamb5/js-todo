@@ -86,6 +86,13 @@ function renderLists(listContainer, sidebarContainer) {
   listTitle.textContent = "Lists";
   listContainer.appendChild(listTitle);
 
+  // Create a button to show all todos if filtering by list.
+  const showAll = document.createElement("button");
+  showAll.textContent = "Show All";
+  showAll.id = "showAll";
+  showAll.classList.add("list");
+  showAll.style.display = "none";
+
   // Collect lists from all todo items in local storage.
   let lists = [];
   for (let i = 0; i < window.localStorage.length; i++) {
@@ -103,5 +110,6 @@ function renderLists(listContainer, sidebarContainer) {
     listElement.textContent = list;
     listContainer.appendChild(listElement);
   });
+  listContainer.appendChild(showAll);
   sidebarContainer.appendChild(listContainer);
 }
