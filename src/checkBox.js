@@ -9,7 +9,6 @@ function markBox(key) {
     todoItem.completed = true;
   }
   window.localStorage.setItem(key, JSON.stringify(todoItem));
-  console.log(todoItem);
 }
 
 function checkboxListeners() {
