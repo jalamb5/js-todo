@@ -86,7 +86,7 @@ function renderLists(listContainer, sidebarContainer) {
   listTitle.textContent = "Lists";
   listContainer.appendChild(listTitle);
 
-  // Create a button to show all todos if filtering by list.
+  // Create a hidden button to show all todos if filtering by list.
   const showAll = document.createElement("button");
   showAll.textContent = "Show All";
   showAll.id = "showAll";
