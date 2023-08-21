@@ -1,7 +1,7 @@
 export { filterTodos, filterListeners };
 
 function filterTodos(list) {
-
+  console.log(list);
 }
 
 function filterListeners() {

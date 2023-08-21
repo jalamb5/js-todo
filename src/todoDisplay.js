@@ -96,7 +96,7 @@ function renderLists(listContainer, sidebarContainer) {
 
   // Add cleaned up lists to page.
   cleanedLists.forEach((list) => {
-    const listElement = document.createElement("p");
+    const listElement = document.createElement("a");
     listElement.classList.add("list");
     listElement.textContent = list;
     listContainer.appendChild(listElement);
