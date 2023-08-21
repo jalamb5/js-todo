@@ -20,7 +20,7 @@ function deleteListeners() {
 
   deleteButtons.forEach((deleteButton) => {
     deleteButton.onclick = () => {
-      deleteTodo(deleteButton.parentElement.firstChild.textContent);
+      deleteTodo(deleteButton.parentElement.id);
     }
   })
 }
