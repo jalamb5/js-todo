@@ -53,12 +53,17 @@ function renderTodo(i = 0) {
     dueDate.textContent = todoItem.dueDate;
     priority.textContent = todoItem.priority;
 
+    // Create view / edit button.
+    let editButton = document.createElement("button");
+    editButton.classList.add("edit-btn");
+    editButton.textContent = "✎";
+
     // Create delete button.
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-btn");
     deleteButton.textContent = "🗑";
 
-    newTodo.append(checkBox, title, dueDate, priority, deleteButton);
+    newTodo.append(checkBox, title, dueDate, priority, editButton, deleteButton);
     todosContainer.appendChild(newTodo);
   }
   body.appendChild(todosContainer);
