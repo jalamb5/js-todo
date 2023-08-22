@@ -24,10 +24,42 @@ function modalListeners() {
 // Add todo data to modal.
 function updateModal(key) {
   let todoItem = JSON.parse(window.localStorage.getItem(key));
-  const todoData = document.createElement("p");
+  const todoData = document.createElement("form");
   const modal = document.getElementById("modal");
 
-  todoData.textContent = todoItem;
+  todoData.addEventListener("submit", function (_event) {
+
+    todoItem.title = todoData.elements.title.value;
+    todoItem.dueDate = todoData.elements.dueDate.value;
+    todoItem.priority = todoData.elements.priority.value;
+    todoItem.notes = todoData.elements.notes.value;
+    todoItem.list = todoData.elements.list.value;
+
+    window.localStorage.setItem(key, JSON.stringify(todoItem));
+  });
+
+    todoData.innerHTML = `
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value=${todoItem.title} required><br>
+
+      <label for="due-date">Due Date:</label>
+      <input type="date" id="due-date" name="dueDate" value=${todoItem.dueDate}><br>
+
+      <label for="priority">Priority:</label>
+      <select id="priority" name="priority" value=${todoItem.priority}>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+      </select><br>
+
+      <label for="notes">Notes:</label>
+      <textarea id="notes" name="notes">${todoItem.notes}</textarea><br>
+
+      <label for="list">List:</label>
+      <input type="text" id="list" name="list" value=${todoItem.list}><br>
+
+      <input type="submit" value="Edit Todo" id="submit">
+    `;
+
   modal.appendChild(todoData);
 }
-
