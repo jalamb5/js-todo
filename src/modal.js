@@ -32,9 +32,18 @@ function updateModal(key) {
     }
   }
 
+  // add a close button.
+  const closeModal = document.createElement("button");
+  closeModal.innerHTML = "&times";
+  modal.appendChild(closeModal);
+
+  closeModal.onclick = () => {
+    modal.close()
+  };
+
+  // Pull todo info and prefill form with data.
   let todoItem = JSON.parse(window.localStorage.getItem(key));
   const todoData = document.createElement("form");
-
 
   todoData.addEventListener("submit", function (_event) {
 
