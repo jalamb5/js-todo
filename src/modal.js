@@ -23,9 +23,18 @@ function modalListeners() {
 
 // Add todo data to modal.
 function updateModal(key) {
+  const modal = document.getElementById("modal");
+  
+  // clear any existing data.
+  if (modal.children.length > 0) {
+    while (modal.firstChild) {
+      modal.removeChild(modal.firstChild);
+    }
+  }
+
   let todoItem = JSON.parse(window.localStorage.getItem(key));
   const todoData = document.createElement("form");
-  const modal = document.getElementById("modal");
+
 
   todoData.addEventListener("submit", function (_event) {
 
