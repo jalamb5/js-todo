@@ -32,11 +32,20 @@ function updateModal(key) {
     }
   }
 
-  // add a close button.
+  // add a title and close button.
+  const headerDiv = document.createElement("div");
+  const modalTitle = document.createElement("h3");
+  headerDiv.id = "modal-header";
+  modalTitle.textContent = "View / Edit To-do";
+
   const closeModal = document.createElement("button");
   closeModal.innerHTML = "&times";
-  modal.appendChild(closeModal);
+  closeModal.id = "closeModal";
 
+  headerDiv.append(modalTitle, closeModal);
+  modal.appendChild(headerDiv);
+
+  // Add listener to close button.
   closeModal.onclick = () => {
     modal.close()
   };
