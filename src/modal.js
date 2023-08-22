@@ -24,7 +24,7 @@ function modalListeners() {
 // Add todo data to modal.
 function updateModal(key) {
   const modal = document.getElementById("modal");
-  
+
   // clear any existing data.
   if (modal.children.length > 0) {
     while (modal.firstChild) {
@@ -49,7 +49,7 @@ function updateModal(key) {
 
     todoData.innerHTML = `
       <label for="title">Title:</label>
-      <input type="text" id="title" name="title" value=${todoItem.title} required><br>
+      <input type="text" id="title" name="title" value="${todoItem.title}" required><br>
 
       <label for="due-date">Due Date:</label>
       <input type="date" id="due-date" name="dueDate" value=${todoItem.dueDate}><br>
