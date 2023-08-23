@@ -41,6 +41,7 @@ function renderTodo(i = 0) {
     // Create checkbox and ensure it is marked if the todo is completed.
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.classList.add("checkbox");
     if (todoItem.completed) {
       checkBox.checked = true;
     }
