@@ -60,7 +60,11 @@ label {
 }
 
 .list {
-  padding-bottom: .25rem;
+  padding-bottom: .5rem;
+  text-decoration: underline;
+}
+.list:hover {
+  cursor: pointer;
 }
 
 #modal-header {
