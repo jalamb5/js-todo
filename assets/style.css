@@ -41,8 +41,8 @@ label {
 }
 
 .todo-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }
 
 #list-container {
