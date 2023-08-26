@@ -67,6 +67,10 @@ label {
   cursor: pointer;
 }
 
+#new-list-form {
+  padding-top: 1rem;
+}
+
 #modal-header {
   display: flex;
   justify-content: space-between;
