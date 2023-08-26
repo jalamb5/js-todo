@@ -103,8 +103,8 @@ function renderLists(listContainer, sidebarContainer) {
     lists.push(todoItem.list);
   }
 
-  // Remove duplicates.
-  let cleanedLists = [...new Set(lists)];
+  // Remove duplicates & empty strings.
+  let cleanedLists = [...new Set(lists.filter(list => list))];
 
   // Add cleaned up lists to page.
   cleanedLists.forEach((list) => {

@@ -1,4 +1,4 @@
-export default renderTodoForm;
+export { renderTodoForm, listOptions };
 import renderTodo from "./todoDisplay.js";
 
 class todo {
@@ -58,8 +58,10 @@ function renderTodoForm() {
       <textarea id="notes" name="notes"></textarea><br>
 
       <label for="list">List:</label>
-      <input type="text" id="list" name="list" value="Default"><br>
+      <select id="list" name="list>
+      </select><br>
 
+      <label for"submit"></label>
       <input type="submit" value="Create Todo" id="submit">
   `;
 
@@ -70,3 +72,39 @@ function renderTodoForm() {
 function sendToStorage(todoItem) {
   window.localStorage.setItem(window.localStorage.length, todoItem);
 };
+
+function listOptions() {
+  const listSelector = document.getElementById("list")
+
+  // Collect lists from all todo items in local storage.
+  let lists = [];
+  for (let i = 0; i < window.localStorage.length; i++) {
+    let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    lists.push(todoItem.list);
+  }
+
+  // Remove duplicates & empty strings.
+  let cleanedLists = [...new Set(lists.filter(list => list))];
+
+  // Remove any existing children to prevent duplicates.
+  if (listSelector.children.length > 0) {
+    while (listSelector.firstChild) {
+      listSelector.removeChild(listSelector.firstChild);
+    }
+  }
+
+  // Add options to list selector, set to 'default' if no lists created yet.
+  if (cleanedLists.length === 0) {
+    let option = document.createElement("option");
+    option.textContent = "Default";
+    option.value = "Default";
+    listSelector.appendChild(option);
+  } else {
+    cleanedLists.forEach(list => {
+      let option = document.createElement("option");
+      option.textContent = list;
+      option.value = list;
+      listSelector.appendChild(option);
+    })
+  }
+}
