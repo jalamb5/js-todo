@@ -1,5 +1,5 @@
 export { deleteTodo, deleteListeners };
-import renderTodo from "./todoDisplay";
+import {renderTodo} from "./todoDisplay";
 
 function deleteTodo(key) {
   window.localStorage.setItem(key, '{"deleted":"deleted"}');

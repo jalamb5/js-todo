@@ -1,8 +1,6 @@
 export { filterTodos, filterListeners };
 
 function filterTodos(list) {
-
-
   // Reveal 'Show All' button.
   const showAll = document.getElementById('showAll');
   showAll.style.display = "";

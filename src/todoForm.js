@@ -1,5 +1,5 @@
 export { renderTodoForm, listOptions };
-import renderTodo from "./todoDisplay.js";
+import {renderTodo, renderLists} from "./todoDisplay.js";
 
 class todo {
   constructor(title, dueDate, priority, notes, list = "default") {
@@ -38,6 +38,7 @@ function renderTodoForm() {
 
     // Render only the newly created todo.
     renderTodo(window.localStorage.length - 1);
+
   });
 
   form.innerHTML = `
@@ -67,13 +68,15 @@ function renderTodoForm() {
 
   sidebarContainer.appendChild(form);
   body.appendChild(sidebarContainer);
+      // Render new list form.
+      renderNewListForm();
 }
 
 function sendToStorage(todoItem) {
   window.localStorage.setItem(window.localStorage.length, todoItem);
 };
 
-function listOptions() {
+function listOptions(newList=false) {
   const listSelector = document.getElementById("list")
 
   // Collect lists from all todo items in local storage.
@@ -81,6 +84,11 @@ function listOptions() {
   for (let i = 0; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
     lists.push(todoItem.list);
+  }
+
+  // Add new list if necessary.
+  if (newList) {
+    lists.push(newList);
   }
 
   // Remove duplicates & empty strings.
@@ -98,13 +106,44 @@ function listOptions() {
     let option = document.createElement("option");
     option.textContent = "Default";
     option.value = "Default";
+    option.classList.add("list-options");
     listSelector.appendChild(option);
   } else {
     cleanedLists.forEach(list => {
       let option = document.createElement("option");
       option.textContent = list;
       option.value = list;
+      option.classList.add("list-options");
       listSelector.appendChild(option);
     })
   }
+}
+
+function renderNewListForm() {
+  const sidebarContainer = document.getElementById("sidebar");
+  const form = document.createElement("form");
+  form.id = "new-list-form";
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const list = form.elements.new_list.value;
+
+    // Reset the form after submission
+    form.reset();
+
+    // Send new list to options.
+    listOptions(list);
+
+  });
+
+  form.innerHTML = `
+      <label for="new_list">Title:</label>
+      <input type="text" id="new_list" name="new_list" required><br>
+
+      <label for"submit"></label>
+      <input type="submit" value="New List" id="submit">
+  `;
+
+  sidebarContainer.appendChild(form);
 }

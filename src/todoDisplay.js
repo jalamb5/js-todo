@@ -1,7 +1,7 @@
 import { deleteListeners } from "./deleteTodo";
 import { modalListeners } from "./modal";
 
-export default renderTodo;
+export { renderTodo, renderLists };
 
 // Check if content divs exists, if not create them.
 function establishContainers() {
@@ -102,6 +102,12 @@ function renderLists(listContainer, sidebarContainer) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
     lists.push(todoItem.list);
   }
+
+  // Collect lists from form options.
+  const listOptions = document.querySelectorAll(".list-options");
+  listOptions.forEach((option) => {
+    lists.push(option.textContent);
+  })
 
   // Remove duplicates & empty strings.
   let cleanedLists = [...new Set(lists.filter(list => list))];
