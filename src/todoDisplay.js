@@ -1,7 +1,7 @@
 import { deleteListeners } from "./deleteTodo";
 import { modalListeners } from "./modal";
 
-export { renderTodo, renderLists };
+export { renderTodo };
 
 // Check if content divs exists, if not create them.
 function establishContainers() {

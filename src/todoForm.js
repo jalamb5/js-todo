@@ -1,5 +1,5 @@
 export { renderTodoForm, listOptions };
-import {renderTodo, renderLists} from "./todoDisplay.js";
+import { renderTodo } from "./todoDisplay.js";
 
 class todo {
   constructor(title, dueDate, priority, notes, list = "default") {
@@ -111,34 +111,3 @@ function listOptions(edit=false) {
     })
   }
 }
-
-function renderNewListForm() {
-  const sidebarContainer = document.getElementById("sidebar");
-  const form = document.createElement("form");
-  form.id = "new-list-form";
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const list = form.elements.new_list.value;
-
-    // Reset the form after submission
-    form.reset();
-
-    // Send new list to options.
-    listOptions(list);
-
-  });
-
-  form.innerHTML = `
-      <label for="new_list">Title:</label>
-      <input type="text" id="new_list" name="new_list" required><br>
-
-      <label for"submit"></label>
-      <input type="submit" value="New List" id="submit">
-  `;
-
-  sidebarContainer.appendChild(form);
-}
-
-
