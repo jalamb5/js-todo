@@ -59,10 +59,10 @@ function renderTodoForm() {
       <textarea id="notes" name="notes"></textarea><br>
 
       <label for="list">List:</label>
-      <select id="list" name="list>
-      </select><br>
+      <input list="list-options" id="list" name="list />
+      <datalist id="list-options"></datalist><br>
 
-      <label for"submit"></label>
+      <label for="submit"></label>
       <input type="submit" value="Create Todo" id="submit">
   `;
 
@@ -104,7 +104,7 @@ function listOptions(newList=false) {
   // Add options to list selector, set to 'default' if no lists created yet.
   if (cleanedLists.length === 0) {
     let option = document.createElement("option");
-    option.textContent = "Default";
+    // option.textContent = "Default";
     option.value = "Default";
     option.classList.add("list-options");
     listSelector.appendChild(option);
@@ -147,3 +147,5 @@ function renderNewListForm() {
 
   sidebarContainer.appendChild(form);
 }
+
+
