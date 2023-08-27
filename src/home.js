@@ -6,8 +6,6 @@ import { deleteListeners } from "./deleteTodo.js";
 import { filterListeners } from "./todoFilter.js";
 import { renderModal, modalListeners } from "./modal.js";
 
-// window.localStorage.clear();
-
 renderTodoForm();
 renderTodo();
 renderModal();
