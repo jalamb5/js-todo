@@ -50,9 +50,9 @@ function renderTodoForm() {
 
       <label for="priority">Priority:</label>
       <select id="priority" name="priority">
-          <option value="high">High</option>
-          <option value="medium" selected>Medium</option>
-          <option value="low">Low</option>
+          <option value="High">High</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Low">Low</option>
       </select><br>
 
       <label for="notes">Notes:</label>

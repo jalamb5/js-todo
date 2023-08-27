@@ -74,11 +74,12 @@ function updateModal(key) {
       <input type="date" id="due-date" name="dueDate" value=${todoItem.dueDate}><br>
 
       <label for="priority">Priority:</label>
-      <select id="priority" name="priority" value=${todoItem.priority}>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-      </select><br>
+      <input list="modal-priority-selections" name="priority" value=${todoItem.priority}>
+      <datalist id="modal-priority-selections">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+      </datalist><br>
 
       <label for="notes">Notes:</label>
       <textarea id="notes" name="notes">${todoItem.notes}</textarea><br>
