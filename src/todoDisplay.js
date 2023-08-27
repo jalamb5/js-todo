@@ -74,16 +74,6 @@ function renderTodo(i = 0) {
   // Ensure onclick listeners are added to edit & delete buttons.
   deleteListeners();
   modalListeners();
-
-  // For testing purposes only, clear data.
-  let clearButton = document.createElement("button");
-  clearButton.textContent = "Clear Data";
-  body.appendChild(clearButton);
-
-  clearButton.onclick = () => {
-    window.localStorage.clear();
-    location.reload();
-  }
 }
 
 function renderLists(listContainer, sidebarContainer) {

@@ -14,3 +14,13 @@ modalListeners();
 deleteListeners();
 filterListeners();
 listOptions();
+
+// For testing purposes only, clear data.
+let clearButton = document.createElement("button");
+clearButton.textContent = "Clear Data";
+document.querySelector("body").appendChild(clearButton);
+
+clearButton.onclick = () => {
+  window.localStorage.clear();
+  location.reload();
+}
