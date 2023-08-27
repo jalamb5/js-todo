@@ -67,6 +67,11 @@ label {
   cursor: pointer;
 }
 
+#showAll {
+  text-decoration: none;
+  padding: 2px;
+}
+
 #new-list-form {
   padding-top: 1rem;
 }

@@ -59,8 +59,8 @@ function renderTodoForm() {
       <textarea id="notes" name="notes"></textarea><br>
 
       <label for="list">List:</label>
-      <input list="list-options" id="list" name="list" />
-      <datalist id="list-options"></datalist><br>
+      <input list="list-selections" id="list" name="list"/>
+      <datalist id="list-selections"></datalist><br>
 
       <label for="submit"></label>
       <input type="submit" value="Create Todo" id="submit">
@@ -68,27 +68,20 @@ function renderTodoForm() {
 
   sidebarContainer.appendChild(form);
   body.appendChild(sidebarContainer);
-      // Render new list form.
-      renderNewListForm();
 }
 
 function sendToStorage(todoItem) {
   window.localStorage.setItem(window.localStorage.length, todoItem);
 };
 
-function listOptions(newList=false) {
-  const listSelector = document.getElementById("list")
+function listOptions(edit=false) {
+  const listSelector = edit === "edit" ? document.getElementById("modal-list-selections") : document.getElementById("list-selections");
 
   // Collect lists from all todo items in local storage.
   let lists = [];
   for (let i = 0; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
     lists.push(todoItem.list);
-  }
-
-  // Add new list if necessary.
-  if (newList) {
-    lists.push(newList);
   }
 
   // Remove duplicates & empty strings.

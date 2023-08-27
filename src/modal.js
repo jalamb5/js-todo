@@ -1,4 +1,5 @@
 export { renderModal, modalListeners }
+import { listOptions } from "./todoForm";
 
 function renderModal() {
   const todosContainer = document.getElementById("todos-container");
@@ -83,10 +84,12 @@ function updateModal(key) {
       <textarea id="notes" name="notes">${todoItem.notes}</textarea><br>
 
       <label for="list">List:</label>
-      <input type="text" id="list" name="list" value=${todoItem.list}><br>
+      <input list="modal-list-selections" id="list" name="list" value=${todoItem.list}>
+      <datalist id="modal-list-selections"></datalist><br>
 
       <input type="submit" value="Edit Todo" id="submit">
     `;
 
   modal.appendChild(todoData);
+  listOptions("edit");
 }
