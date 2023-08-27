@@ -59,7 +59,7 @@ function renderTodoForm() {
       <textarea id="notes" name="notes"></textarea><br>
 
       <label for="list">List:</label>
-      <input list="list-options" id="list" name="list />
+      <input list="list-options" id="list" name="list" />
       <datalist id="list-options"></datalist><br>
 
       <label for="submit"></label>
