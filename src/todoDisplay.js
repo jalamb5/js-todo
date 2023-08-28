@@ -44,6 +44,7 @@ function renderTodo(i = 0) {
     checkBox.classList.add("checkbox");
     if (todoItem.completed) {
       checkBox.checked = true;
+      newTodo.classList.add("todo-complete");
     }
 
     // Add todo info to page.
