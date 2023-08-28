@@ -1,6 +1,6 @@
-export { filterTodos, filterListeners };
+export { filterListeners };
 
-function filterTodos(list) {
+function filterTodos(filter) {
   // Reveal 'Show All' button.
   const showAll = document.getElementById('showAll');
   showAll.style.display = "";
@@ -16,13 +16,13 @@ function filterTodos(list) {
     if (todoItem.deleted === "deleted") {
       continue;
     // if 'show all' is clicked, remove any hidden attributes and move to next.
-    } else if (list === "Show All") {
+    } else if (filter === "Show All") {
       todoDiv.style.display = "";
       // rehide show all button.
       showAll.style.display = "none";
       continue;
     // hide the item if list doesn't match.
-    } else if (todoItem.list !== list) {
+    } else if (todoItem.list !== filter) {
       todoDiv.style.display = "none";
     // show item if list matches.
     } else {
