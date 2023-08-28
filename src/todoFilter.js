@@ -21,6 +21,11 @@ function filterTodos(filter) {
       // rehide show all button.
       showAll.style.display = "none";
       continue;
+    // hide completed items
+    } else if (filter === "Hide Completed") {
+      if (todoItem.completed === true) {
+        todoDiv.style.display = "none";
+      }
     // hide the item if list doesn't match.
     } else if (todoItem.list !== filter) {
       todoDiv.style.display = "none";
@@ -32,6 +37,7 @@ function filterTodos(filter) {
 }
 
 function filterListeners() {
+  // Listen for list filters.
   let listLinks = document.querySelectorAll(".list");
 
   listLinks.forEach((list) => {
@@ -39,4 +45,10 @@ function filterListeners() {
       filterTodos(list.textContent);
     }
   })
+
+  // Listen for completed filters.
+  let completedButton = document.getElementById("hideCompleted")
+  completedButton.onclick = () => {
+    filterTodos(completedButton.textContent);
+  }
 }

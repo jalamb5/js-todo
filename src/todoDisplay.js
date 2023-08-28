@@ -89,6 +89,11 @@ function renderLists(listContainer, sidebarContainer) {
   listTitle.textContent = "Lists";
   listContainer.appendChild(listTitle);
 
+  // Create hide completed button.
+  let hideCompletedButton = document.createElement("button");
+  hideCompletedButton.id = "hideCompleted";
+  hideCompletedButton.textContent = "Hide Completed";
+
   // Create a hidden button to show all todos if filtering by list.
   const showAll = document.createElement("button");
   showAll.textContent = "Show All";
@@ -119,6 +124,6 @@ function renderLists(listContainer, sidebarContainer) {
     listElement.textContent = list;
     listContainer.appendChild(listElement);
   });
-  listContainer.appendChild(showAll);
+  listContainer.append(showAll, hideCompletedButton);
   sidebarContainer.appendChild(listContainer);
 }
