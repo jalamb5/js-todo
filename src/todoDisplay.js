@@ -59,12 +59,12 @@ function renderTodo(i = 0) {
     // Create view / edit button.
     let editButton = document.createElement("button");
     editButton.classList.add("edit-btn");
-    editButton.textContent = "✎";
+    editButton.innerHTML = '<img src="../dist/assets/edit-icon.png" class="edit-btn"/>';
 
     // Create delete button.
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-btn");
-    deleteButton.textContent = "🗑";
+    deleteButton.innerHTML = '<img src="../dist/assets/delete-icon.png" class="delete-btn"/>';
 
     newTodo.append(checkBox, title, dueDate, priority, editButton, deleteButton);
     todosContainer.appendChild(newTodo);
