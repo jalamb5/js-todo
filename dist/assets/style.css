@@ -81,3 +81,8 @@ label {
   justify-content: space-between;
   align-items: center;
 }
+
+.todo-complete {
+  color: gray;
+  text-decoration: line-through;
+}
