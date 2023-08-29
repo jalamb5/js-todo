@@ -1,5 +1,5 @@
 body {
-  background-color: #c9b0cf;
+  background-color: #ceb0d5;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 5rem 1fr;
@@ -9,7 +9,6 @@ form {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 3px;
-  /* flex-wrap: wrap; */
 }
 label {
   grid-column: 1;
