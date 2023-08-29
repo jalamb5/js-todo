@@ -56,6 +56,9 @@ function renderTodo(i = 0) {
     dueDate.textContent = todoItem.dueDate;
     priority.textContent = todoItem.priority;
 
+    // Add class for priority.
+    priority.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
+
     // Create view / edit button.
     let editButton = document.createElement("button");
     editButton.classList.add("edit-btn");
