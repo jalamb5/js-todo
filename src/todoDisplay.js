@@ -1,5 +1,6 @@
 import { deleteListeners } from "./deleteTodo";
 import { modalListeners } from "./modal";
+import checkboxListeners from "./checkBox";
 
 export { renderTodo };
 
@@ -78,6 +79,7 @@ function renderTodo(i = 0) {
   // Ensure onclick listeners are added to edit & delete buttons.
   deleteListeners();
   modalListeners();
+  checkboxListeners();
 }
 
 function renderLists(listContainer, sidebarContainer) {
