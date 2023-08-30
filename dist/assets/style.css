@@ -46,9 +46,6 @@ label {
   grid-column: 2;
   grid-row: 1 / span 2;
   margin: 2rem;
-  /* margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem; */
   display: flex;
   flex-direction: column;
 }
