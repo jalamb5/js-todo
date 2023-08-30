@@ -13,6 +13,7 @@ listOptions();
 // For testing purposes only, clear data.
 let clearButton = document.createElement("button");
 clearButton.textContent = "Clear Data";
+clearButton.classList.add("btn");
 document.querySelector("body").appendChild(clearButton);
 
 clearButton.onclick = () => {

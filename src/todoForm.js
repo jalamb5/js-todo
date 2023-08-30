@@ -63,7 +63,7 @@ function renderTodoForm() {
       <datalist id="list-selections"></datalist><br>
 
       <label for="submit"></label>
-      <input type="submit" value="Create Todo" id="submit">
+      <input type="submit" value="Create Todo" id="submit" class="btn">
   `;
 
   sidebarContainer.appendChild(form);
