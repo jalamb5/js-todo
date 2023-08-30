@@ -113,4 +113,8 @@ label {
   color: #ff7f50;
 }
 
-
+.danger {
+  background-color: red;
+  color: white;
+  margin-top: 3rem;
+}
