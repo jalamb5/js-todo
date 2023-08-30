@@ -98,14 +98,14 @@ function renderLists(listContainer, sidebarContainer) {
   // Create hide completed button.
   let hideCompletedButton = document.createElement("button");
   hideCompletedButton.id = "hideCompleted";
-  hideCompletedButton.classList.add("btn");
+  hideCompletedButton.classList.add("button", "is-primary");
   hideCompletedButton.textContent = "Hide Completed";
 
   // Create a hidden button to show all todos if filtering by list.
   const showAll = document.createElement("button");
   showAll.textContent = "Show All";
   showAll.id = "showAll";
-  showAll.classList.add("list", "btn");
+  showAll.classList.add("list", "button", "is-primary");
   showAll.style.display = "none";
 
   // Collect lists from all todo items in local storage.

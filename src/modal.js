@@ -88,7 +88,7 @@ function updateModal(key) {
       <input list="modal-list-selections" id="list" name="list" value=${todoItem.list}>
       <datalist id="modal-list-selections"></datalist><br>
 
-      <input type="submit" value="Edit Todo" id="submit">
+      <input type="submit" value="Edit Todo" id="submit" class="button">
     `;
 
   modal.appendChild(todoData);
