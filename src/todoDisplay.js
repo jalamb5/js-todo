@@ -30,6 +30,7 @@ function renderTodo(i = 0) {
   for (i; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
+    // Check for null item if localStorage contains non-todo items, skip deleted.
     if (todoItem === null || todoItem.deleted === "deleted") {
       continue;
     }
@@ -112,6 +113,7 @@ function renderLists(listContainer, sidebarContainer) {
   let lists = [];
   for (let i = 0; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    // Check for null item if localStorage contains non-todo items.
     if (todoItem === null) {
       continue;
     }
