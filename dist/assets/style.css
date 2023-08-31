@@ -93,6 +93,15 @@ label {
   align-items: center;
 }
 
+#closeModal {
+  border-radius: .4rem;
+  border: none;
+  background-color: #98FB98;
+  height: 25px;
+  width: 25px;
+  font-size: 1rem;
+}
+
 .todo-complete {
   color: rgb(63, 62, 62);
   text-decoration: line-through;
@@ -124,3 +133,4 @@ label {
   color: white;
   margin-top: 3rem;
 }
+
