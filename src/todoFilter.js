@@ -8,6 +8,10 @@ function filterTodos(filter) {
   // Filter todos by list.
   for (let i = 0; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    // Null checking
+    if (todoItem === null) {
+      continue;
+    }
 
     // find the div containing this todo item.
     let todoDiv = document.getElementById(i);
