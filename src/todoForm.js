@@ -81,6 +81,10 @@ function listOptions(edit=false) {
   let lists = [];
   for (let i = 0; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    // Null checking
+    if (todoItem === null) {
+      continue;
+    }
     lists.push(todoItem.list);
   }
 
