@@ -30,7 +30,7 @@ function renderTodo(i = 0) {
   for (i; i < window.localStorage.length; i++) {
     let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
-    if (todoItem.deleted === "deleted" || todoItem === null) {
+    if (todoItem === null || todoItem.deleted === "deleted") {
       continue;
     }
 
