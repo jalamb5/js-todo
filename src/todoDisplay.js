@@ -1,6 +1,7 @@
 import { deleteListeners } from "./deleteTodo";
 import { modalListeners } from "./modal";
 import checkboxListeners from "./checkBox";
+import { filterListeners } from "./todoFilter";
 
 export { renderTodo };
 
@@ -81,6 +82,7 @@ function renderTodo(i = 0) {
   deleteListeners();
   modalListeners();
   checkboxListeners();
+  filterListeners();
 }
 
 function renderLists(listContainer, sidebarContainer) {
