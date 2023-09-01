@@ -2,7 +2,7 @@ export { filterListeners };
 
 function filterTodos(filter) {
   // Reveal 'Show All' button.
-  const showAll = document.getElementById('showAll');
+  const showAll = document.getElementById("showAll");
   showAll.style.display = "";
 
   // Filter todos by list.
@@ -19,21 +19,21 @@ function filterTodos(filter) {
     // ignore deleted todo items.
     if (todoItem.deleted === "deleted") {
       continue;
-    // if 'show all' is clicked, remove any hidden attributes and move to next.
+      // if 'show all' is clicked, remove any hidden attributes and move to next.
     } else if (filter === "Show All") {
       todoDiv.style.display = "";
       // rehide show all button.
       showAll.style.display = "none";
       continue;
-    // hide completed items
+      // hide completed items
     } else if (filter === "Hide Completed") {
       if (todoItem.completed === true) {
         todoDiv.style.display = "none";
       }
-    // hide the item if list doesn't match.
+      // hide the item if list doesn't match.
     } else if (todoItem.list !== filter) {
       todoDiv.style.display = "none";
-    // show item if list matches.
+      // show item if list matches.
     } else {
       todoDiv.style.display = "";
     }
@@ -47,12 +47,12 @@ function filterListeners() {
   listLinks.forEach((list) => {
     list.onclick = () => {
       filterTodos(list.textContent);
-    }
-  })
+    };
+  });
 
   // Listen for completed filters.
-  let completedButton = document.getElementById("hideCompleted")
+  let completedButton = document.getElementById("hideCompleted");
   completedButton.onclick = () => {
     filterTodos(completedButton.textContent);
-  }
+  };
 }

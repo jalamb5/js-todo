@@ -29,20 +29,20 @@ function renderTodo(i = 0) {
   const [todosContainer, listContainer] = establishContainers();
 
   for (i; i < window.localStorage.length; i++) {
-    let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    const todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
 
     // Check for null item if localStorage contains non-todo items, skip deleted.
     if (todoItem === null || todoItem.deleted === "deleted") {
       continue;
     }
 
-    let newTodo = document.createElement("div");
+    const newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
     // Attach the todo item's key for lookups.
     newTodo.id = i;
 
     // Create checkbox and ensure it is marked if the todo is completed.
-    let checkBox = document.createElement("input");
+    const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.classList.add("checkbox");
     if (todoItem.completed) {
@@ -63,16 +63,25 @@ function renderTodo(i = 0) {
     priority.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
 
     // Create view / edit button.
-    let editButton = document.createElement("button");
+    const editButton = document.createElement("button");
     editButton.classList.add("edit-btn");
-    editButton.innerHTML = '<img src="./assets/edit-icon.png" class="edit-btn"/>';
+    editButton.innerHTML =
+      '<img src="./assets/edit-icon.png" class="edit-btn"/>';
 
     // Create delete button.
-    let deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-btn");
-    deleteButton.innerHTML = '<img src="./assets/delete-icon.png" class="delete-btn"/>';
+    deleteButton.innerHTML =
+      '<img src="./assets/delete-icon.png" class="delete-btn"/>';
 
-    newTodo.append(checkBox, title, dueDate, priority, editButton, deleteButton);
+    newTodo.append(
+      checkBox,
+      title,
+      dueDate,
+      priority,
+      editButton,
+      deleteButton,
+    );
     todosContainer.appendChild(newTodo);
   }
   body.appendChild(todosContainer);
@@ -94,12 +103,12 @@ function renderLists(listContainer, sidebarContainer) {
   }
 
   // Set title.
-  let listTitle = document.createElement("h2");
+  const listTitle = document.createElement("h2");
   listTitle.textContent = "Lists";
   listContainer.appendChild(listTitle);
 
   // Create hide completed button.
-  let hideCompletedButton = document.createElement("button");
+  const hideCompletedButton = document.createElement("button");
   hideCompletedButton.id = "hideCompleted";
   hideCompletedButton.classList.add("button", "is-primary");
   hideCompletedButton.textContent = "Hide Completed";
@@ -112,9 +121,9 @@ function renderLists(listContainer, sidebarContainer) {
   showAll.style.display = "none";
 
   // Collect lists from all todo items in local storage.
-  let lists = [];
+  const lists = [];
   for (let i = 0; i < window.localStorage.length; i++) {
-    let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    const todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
     // Check for null item if localStorage contains non-todo items.
     if (todoItem === null) {
       continue;
@@ -126,10 +135,10 @@ function renderLists(listContainer, sidebarContainer) {
   const listOptions = document.querySelectorAll(".list-options");
   listOptions.forEach((option) => {
     lists.push(option.textContent);
-  })
+  });
 
   // Remove duplicates & empty strings.
-  let cleanedLists = [...new Set(lists.filter(list => list))];
+  const cleanedLists = [...new Set(lists.filter((list) => list))];
 
   // Add cleaned up lists to page.
   cleanedLists.forEach((list) => {

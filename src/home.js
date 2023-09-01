@@ -1,5 +1,5 @@
-import {renderTodo} from "./todoDisplay.js";
-import {renderTodoForm, listOptions } from "./todoForm.js";
+import { renderTodo } from "./todoDisplay.js";
+import { renderTodoForm, listOptions } from "./todoForm.js";
 import css from "../dist/assets/style.css";
 import { filterListeners } from "./todoFilter.js";
 import { renderModal, modalListeners } from "./modal.js";
@@ -21,5 +21,3 @@ listOptions();
 //   window.localStorage.clear();
 //   location.reload();
 // }
-
-

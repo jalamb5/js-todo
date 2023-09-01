@@ -1,5 +1,6 @@
-export { renderTodoForm, listOptions };
 import { renderTodo } from "./todoDisplay.js";
+
+export { renderTodoForm, listOptions };
 
 class todo {
   constructor(title, dueDate, priority, notes, list = "default") {
@@ -19,7 +20,7 @@ function renderTodoForm() {
   sidebarContainer.id = "sidebar";
 
   const form = document.createElement("form");
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const title = form.elements.title.value;
@@ -38,7 +39,6 @@ function renderTodoForm() {
 
     // Render only the newly created todo.
     renderTodo(window.localStorage.length - 1);
-
   });
 
   form.innerHTML = `
@@ -72,15 +72,18 @@ function renderTodoForm() {
 
 function sendToStorage(todoItem) {
   window.localStorage.setItem(window.localStorage.length, todoItem);
-};
+}
 
-function listOptions(edit=false) {
-  const listSelector = edit === "edit" ? document.getElementById("modal-list-selections") : document.getElementById("list-selections");
+function listOptions(edit = false) {
+  const listSelector =
+    edit === "edit"
+      ? document.getElementById("modal-list-selections")
+      : document.getElementById("list-selections");
 
   // Collect lists from all todo items in local storage.
-  let lists = [];
+  const lists = [];
   for (let i = 0; i < window.localStorage.length; i++) {
-    let todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
+    const todoItem = JSON.parse(window.localStorage.getItem(i.toString()));
     // Null checking
     if (todoItem === null) {
       continue;
@@ -89,7 +92,7 @@ function listOptions(edit=false) {
   }
 
   // Remove duplicates & empty strings.
-  let cleanedLists = [...new Set(lists.filter(list => list))];
+  const cleanedLists = [...new Set(lists.filter((list) => list))];
 
   // Remove any existing children to prevent duplicates.
   if (listSelector.children.length > 0) {
@@ -100,18 +103,18 @@ function listOptions(edit=false) {
 
   // Add options to list selector, set to 'default' if no lists created yet.
   if (cleanedLists.length === 0) {
-    let option = document.createElement("option");
+    const option = document.createElement("option");
     // option.textContent = "Default";
     option.value = "Default";
     option.classList.add("list-options");
     listSelector.appendChild(option);
   } else {
-    cleanedLists.forEach(list => {
-      let option = document.createElement("option");
+    cleanedLists.forEach((list) => {
+      const option = document.createElement("option");
       option.textContent = list;
       option.value = list;
       option.classList.add("list-options");
       listSelector.appendChild(option);
-    })
+    });
   }
 }
